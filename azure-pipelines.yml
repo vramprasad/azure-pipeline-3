@@ -1,1 +1,38 @@
-Initial file
+trigger: none
+
+pool:
+  name: RPLocalPool
+  demands:
+    - agent.name -equals RPLocalMac
+parameters:
+  - name: targetEnvironment
+    displayName: "Target Environment"
+    type: string
+    default: DEV
+    values:
+      - DEV
+      - TEST
+      - ACC
+
+stages:
+  - stage: GetDocumentAPITests
+    displayName: 'GetDocumentAPITests'
+    jobs:
+      - job: GetDocumentAPITestsDEV
+        displayName: 'DEV - GetDocumentAPITests'
+        condition: eq(parameters.targetEnvironment, 'DEV')
+        steps:
+          - script: |
+              echo 'DEV - GetDocumentAPITests'
+      - job: GetDocumentAPITestsTEST
+          displayName: 'TEST - GetDocumentAPITests'
+          condition: eq(parameters.targetEnvironment, 'TEST')
+          steps:
+            - script: |
+                echo 'TEST - GetDocumentAPITests'
+      - job: GetDocumentAPITestsACC
+          displayName: 'ACC - GetDocumentAPITests'
+          condition: eq(parameters.targetEnvironment, 'ACC')
+          steps:
+            - script: |
+                echo 'ACC - GetDocumentAPITests'
