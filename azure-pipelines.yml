@@ -19,7 +19,7 @@ stages:
     displayName: 'GetDocumentAPITests'
     jobs:
       - job: GetDocumentAPITestsDEV
-        displayName: 'DEV - GetDocumentAPITests'
+        displayName: 'DEV - GetDocumentAPI Tests'
         condition: eq('${{ parameters.targetEnvironment }}', 'DEV')
         steps:
           - script: |
@@ -29,10 +29,54 @@ stages:
         condition: eq('${{ parameters.targetEnvironment }}', 'TEST')
         steps:
             - script: |
-                echo 'TEST - GetDocumentAPITests'
+                echo 'TEST - GetDocumentAPI Tests'
       - job: GetDocumentAPITestsACC
         displayName: 'ACC - GetDocumentAPITests'
         condition: eq('${{ parameters.targetEnvironment }}', 'ACC')
         steps:
             - script: |
                 echo 'ACC - GetDocumentAPITests'
+
+  - stage: GetDocumentMetadataAPITests
+    displayName: 'GetDocumentMetadataAPITests'
+    jobs:
+      - job: GetDocumentAMetadataPITestsDEV
+        displayName: 'DEV - GetDocumentMetadataAPI Tests'
+        condition: eq('${{ parameters.targetEnvironment }}', 'DEV')
+        steps:
+          - script: |
+              echo 'DEV - GetDocumentMetadataAPITests'
+      - job: GetDocumentAPIMetadataTestsTEST
+        displayName: 'TEST - GetDocumentMetadataAPITests'
+        condition: eq('${{ parameters.targetEnvironment }}', 'TEST')
+        steps:
+            - script: |
+                echo 'TEST - GetDocumentMetadataAPI Tests'
+      - job: GetDocumentMetadataAPITestsACC
+        displayName: 'ACC - GetDocumentMetadataAPITests'
+        condition: eq('${{ parameters.targetEnvironment }}', 'ACC')
+        steps:
+            - script: |
+                echo 'ACC - GetDocumentMetadataAPITests'
+
+  - stage: AddRelatedEntitiesAPITests
+    displayName: 'AddRelatedEntitiesAPITests'
+    jobs:
+      - job: AddRelatedEntitiesAPITestsDEV
+        displayName: 'DEV - AddRelatedEntitiesAPI Tests'
+        condition: eq('${{ parameters.targetEnvironment }}', 'DEV')
+        steps:
+          - script: |
+              echo 'DEV - AddRelatedEntitiesAPITests'
+      - job: AddRelatedEntitiesAPITestsTEST
+        displayName: 'TEST - AddRelatedEntitiesAPITests'
+        condition: eq('${{ parameters.targetEnvironment }}', 'TEST')
+        steps:
+            - script: |
+                echo 'TEST - AddRelatedEntitiesAPI Tests'
+      - job: AddRelatedEntitiesAPITestsACC
+        displayName: 'ACC - GAddRelatedEntitiesAPITests'
+        condition: eq('${{ parameters.targetEnvironment }}', 'ACC')
+        steps:
+            - script: |
+                echo 'ACC - AddRelatedEntitiesAPITests'
