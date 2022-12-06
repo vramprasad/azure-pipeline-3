@@ -25,14 +25,14 @@ stages:
           - script: |
               echo 'DEV - GetDocumentAPITests'
       - job: GetDocumentAPITestsTEST
-          displayName: 'TEST - GetDocumentAPITests'
-          condition: eq(parameters.targetEnvironment, 'TEST')
-          steps:
+        displayName: 'TEST - GetDocumentAPITests'
+        condition: eq(parameters.targetEnvironment, 'TEST')
+        steps:
             - script: |
                 echo 'TEST - GetDocumentAPITests'
       - job: GetDocumentAPITestsACC
-          displayName: 'ACC - GetDocumentAPITests'
-          condition: eq(parameters.targetEnvironment, 'ACC')
-          steps:
+        displayName: 'ACC - GetDocumentAPITests'
+        condition: eq(parameters.targetEnvironment, 'ACC')
+        steps:
             - script: |
                 echo 'ACC - GetDocumentAPITests'
